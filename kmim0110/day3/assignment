@@ -1,0 +1,45 @@
+1.What is a zombie process? What is an orphan process?
+Ans-Orphan process-A child process that remains running even after its parent process is terminated or completed without waiting for the child process execution is called an orphan.
+    zombie process-A zombie process is a process in its terminated state. parent process that remains running even after its child process is terminated or completed.
+    
+    
+2. What is difference between fork, vfork and exec system call?
+ans-fork():
+  1.Both the child and parent process will have different address space.
+  2.Any modification done by the child in its address space is not visible to parent as both will have seperate copies.
+  3.This uses copy on write.
+  4.Both parent and child execute simultaneously.
+  5.Behavior is predictable
+  
+vfork():
+ 1.Both the child and parent process will have same address space.
+ 2.Any modification done by the child in its address space visible to parent as both will have same copies.
+ 3.vfork()doesnot use copy on write.
+ 4.Parent process will suspend until child execution is completed.
+ 7.Behavior is not predictable.
+ 
+ 3. How to start a new process in shell? Explain with example how ls command works?
+Ans-A new process can be created by the fork() system call. The new process consists of a copy of the address space of the original process. fork() creates new process from existing process. Existing   process is called the parent process and the process is created newly is called child process. The ls command is used to list files or directories in Linux and other Unix-based operating systems
+
+
+4.Write a list of system calls used in process management with proper syntax?
+ans-1. getpid(),getppid()- get process identification
+                        syntax-pid_t getpid(void);
+                               pid_t getppid(void);
+      2.wait, waitpid-wait for process to change state
+               syntax-pid_t wait(int *wstatus);
+                     pid_t waitpid(pid_t pid, int *wstatus, int options);
+       3.system-execute a shell command
+                syntax-int system(const char *command);
+       4.exit-cause normal process termination
+          syntax-void exit(int status);
+       5.fork-create a child process
+          syntax-pid_t fork(void);
+       6.execve - execute program
+           syntax-int execve(const char *pathname, char *const argv[],char *const envp[]);
+       7.kill-send signal to a process
+            syntax-int kill(pid_t pid, int sig);
+
+       
+
+

@@ -1,0 +1,40 @@
+What is the difference between a Task, Process and thread?
+ans-Process: process is the set of instruction as code which operates on related data and process has its own various state, sleeping, running, stopped etc. when program gets loaded into memory it becomes process. Each process has atleast one thread when CPU is allocated called sigled threaded program.
+
+Thread: thread is a portion of the process. more than one thread can exist as part of process. Thread has its own program area and memory area. Multiple threads inside one process can not access each other data. Process has to handle sycnhronization of threads to achieve the desirable behaviour.
+
+Task: Task is not widely concept used worldwide. when program instruction is loaded into memory people do call as process or task. Task and Process are synonyms nowadays.
+
+2.How threads communicate with each other?
+Ans-All the threads in the same program share the same memory space. If an object is accessible to various threads then these threads share access to that object's data member and thus communicate each other. The second way for threads to communicate is by using thread control methods.
+
+3.Do you have any idea about thread safe? How can you implement it?
+Ans-Yes,Thread safety is the avoidance of data races—situations in which data are set to either correct or incorrect values, depending upon the order in which multiple threads access and modify the data.
+ Using an atomic variable is another way to achieve thread-safety. When variables are shared by multiple threads, the atomic variable ensures that threads don't crash into each other.
+ 
+ 4.What is Critical section, deadlocks, race around condition are problems that happen in thread synchronization?
+ Ans-critical section-When more than one processes access the same code segment that segment is known as the critical section. The critical section contains shared variables or resources which are needed to be synchronized to maintain the consistency of data variables. In simple terms, a critical section is a group of instructions/statements or region of code that need to be executed atomically (read this post for atomicity), such as accessing a resource (file, input or output port, global data, etc.).
+ 
+ deadlocks-A deadlock occurs when a thread enters a waiting state because a requested resource is held by another waiting thread, which in turn is waiting for another resource held by another waiting thread. If a thread is unable to change its state indefinitely because the resources requested by it are being used by another waiting thread, then the system is said to be in a deadlock.
+ 
+Race condition- A race condition is an undesirable situation that occurs when a device or system attempts to perform two or more operations at the same time, but because of the nature of the device or system, the operations must be done in the proper sequence to be done correctly.
+ 
+ 
+ 7.What is difference between binary semaphore and mutex?
+ Ans-Binary semaphore-
+            1.Its functions based up on signalling mechanism.
+            2.The thread which is having higher priority than current thread can also release binary semaphore and take lock.
+            3.Semaphore value is changed according to wait () and signal () operations.
+            4.Multiple number of threads can acquire binary semaphore at a time concurrently.
+            5.Binary semaphore have no ownership.
+            6.They are faster than mutex because any other thread/process can unlock binary semaphore.
+            7.If you have number of instances for resource it is better to use Binary semaphore.
+   Mutex-
+            1.Its functions based up on locking mechanism.
+            2.The thread which has acquired mutex can only release Mutex when it exits from critical section.
+            3.Mutex value can be changed as locked and unlocked.
+            4.Only one thread can acquire mutex at a time.
+            5.There is ownership associated with mutex because only owner can release the lock.
+            6.They are slower than binary semaphores because only thread which has acquired must release the lock.
+            7.If you have single instance for resource it is better to use mutex.
+ 

@@ -1,0 +1,9 @@
+Disabling the keyboard:
+1.go to the menu config.
+2.drivers/input/keyboard/atkbd Disable the keyboard.
+3.run the make -j4.
+4.run make modules -j4.
+5.sudo make install.
+6.sudo make modules_install.
+7.reboot the system.
+8.keyboard will be diabled.

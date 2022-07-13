@@ -1,0 +1,16 @@
+Create your own built kernel with your name in EXTRA VERSION option in the Makefile.
+Process for creating own built kernel with the name of mine:
+1.First make the changes in the file EXTRA VERSION=Your_name.
+2.create a folder(mkdir folder_name).
+3.Clone the repository of linux-5.4.182 on it.
+4.install some packages(git,make,ncurses-dev,flex,bison).
+6.run the sudo make -jn(where n is the number of cpu's)This is for static build.
+7.run the sudo make modules -jn this is for dynamic build.
+8.sudo make install
+9.sudo make modules_install.
+10.Make the changes in the groub file for entering into the created kernel by commenting GRUB_TIMEOUT,and TIME_STYLE.
+11.update the grub.
+12.Reboot the system.
+13.Then you observe the your own kernel build system.
+14.You can check thr running kernel in your system by the command 'uname -r'.
+ 

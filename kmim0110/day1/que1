@@ -1,0 +1,13 @@
+Explain the Difference between System Call and Standard Library.
+ans-system call -1.All functions are part of the kernel in the system call. 
+                 2.The system call takes longer to execute than the library call.
+                 3.It is a kernel function that allows you to enter kernel mode and access a hardware resource.
+                 4.It is executed in kernel mode.
+                 5.These are offered by the system and implemented by the system kernel.
+                 6.Ex.-Fork(),Exec()
+    standrad library-1.All library functions in a library call are part of the programming language's standard library file.
+                      2.The execution speed of the library call is faster than the system call.
+                      3.It is a function that the programming library provides to perform a task.
+                      4.t is executed in user mode.
+                      5.These are added to the ANSI C standard library.
+                      6.ex-Fopen(),Fclose(),Printf(),Scanf().
